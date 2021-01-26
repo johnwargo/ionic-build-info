@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 "use strict";
 var boxen = require('boxen');
 var chalk = require('chalk');

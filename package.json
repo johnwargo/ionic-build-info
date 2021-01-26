@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "adds build info to an Ionic project's assets folder",
   "main": "ionic-build-info.js",
+  "bin": {
+    "ionic-build-info": "./ionic-build-info.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node ionic-build-info.js"
