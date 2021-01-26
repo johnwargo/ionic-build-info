@@ -52,7 +52,7 @@ console.log('\nWriting output file');
 
 let outputStr = 'export const buildInfo = {\n';
 outputStr += `  buildVersion: "${buildVersion}",\n`;
-outputStr += `  buildDate: "${buildDate.getTime()}",\n`;
+outputStr += `  buildDate: ${buildDate.getTime()},\n`;
 outputStr += `  buildDateStr: "${buildDate}"\n`;
 outputStr += '}';
 
