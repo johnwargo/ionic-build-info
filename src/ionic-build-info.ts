@@ -2,7 +2,6 @@
 
 const boxen = require('boxen');
 const chalk = require('chalk');
-// const fs = require('fs').promises;
 const fs = require('fs');
 const path = require('path');
 // https://stackoverflow.com/questions/9153571/is-there-a-way-to-get-version-from-package-json-in-nodejs-code
@@ -15,16 +14,16 @@ const buildDate = new Date(Date.now());
 const outputFolder = path.join(process.cwd(), 'src/app');
 const outputFile = path.join(outputFolder, 'buildinfo.ts');
 
-function displayHighlight(highlight: string, msg: string) {
+function outputHighlighted(highlight: string, msg: string) {
     console.log(chalk.yellow(`${highlight}: `) + msg);
 }
 
 // Opening window
 console.log(boxen(appName, { padding: 1 }));
-displayHighlight('Output folder', outputFolder);
-displayHighlight('Output file', outputFile);
-displayHighlight('Build version', buildVersion);
-displayHighlight('Build date', buildDate.toString());
+outputHighlighted('Output folder', outputFolder);
+outputHighlighted('Output file', outputFile);
+outputHighlighted('Build version', buildVersion);
+outputHighlighted('Build date', buildDate.toString());
 
 try {
     if (!fs.existsSync(outputFolder)) {
