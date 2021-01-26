@@ -21,8 +21,7 @@ When you execute the module, it reads the local Ionic project's `package.json` f
 ```typescript
 export const buildInfo = {
   buildVersion: "0.0.4",
-  buildDate: 1611670976033,
-  buildDateStr: "Tue Jan 26 2021 09:22:56 GMT-0500 (GMT-05:00)"
+  buildDate: 1611670976033
 }
 ```
 
