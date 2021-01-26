@@ -1,0 +1,6 @@
+# Folders
+node_modules/
+src/app/
+
+# Files
+package-lock.json

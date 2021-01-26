@@ -1,0 +1,19 @@
+{
+  "name": "ionic-build-info",
+  "version": "0.0.1",
+  "description": "adds build info to an Ionic project's assets folder",
+  "main": "ionic-build-info.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ionic-build-info.js"
+  },
+  "author": "John M. Wargo",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.22"
+  },
+  "dependencies": {
+    "boxen": "^5.0.0",
+    "chalk": "^4.1.0"
+  }
+}
