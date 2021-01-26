@@ -75,7 +75,6 @@ To add this process, open your Ionic project's `package.json` file and update th
 
 to:
 
-
 ```text
 "build": "npm version patch && ionic-build-info && ng build ",
 ```
