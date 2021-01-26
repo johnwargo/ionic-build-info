@@ -5,7 +5,7 @@ I wanted a way to display an Ionic app's build number and build timestamp within
 Install the module by opening a terminal window, navigating to the Ionic project's root, and executing the following command:
 
 ```shell
-npm install ionic-build-info
+npm install g ionic-build-info
 ```
 
 When  you execute the module, it generates the following file in the Ionic project's `src/app/buildinfo.ts` file.
@@ -24,3 +24,5 @@ Update the project's `package.json` file, will work out the specifics of this on
 ```text
 "build": "npm version patch && ionic-build-info && ng build ",
 ```
+
+> *Note:* This module was only tested on Windows (will check on macOS when I get a chance);
