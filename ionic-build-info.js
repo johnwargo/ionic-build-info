@@ -42,11 +42,12 @@ var rawData = fs.readFileSync(inputFile);
 var packageDotJSON = JSON.parse(rawData);
 var buildVersion = packageDotJSON.version;
 outputHighlighted('Build version', buildVersion);
-outputHighlighted('Build date', buildDate.toString());
+outputHighlighted('Build date', buildDate.toString() + " (" + buildDate.getTime().toString() + ")");
 console.log('\nWriting output file');
 var outputStr = 'export const buildInfo = {\n';
 outputStr += "  buildVersion: \"" + buildVersion + "\",\n";
-outputStr += "  buildDate: \"" + buildDate + "\"\n";
+outputStr += "  buildDate: \"" + buildDate.getTime() + "\",\n";
+outputStr += "  buildDateStr: \"" + buildDate + "\"\n";
 outputStr += '}';
 fs.writeFile(outputFile, outputStr, function (err, data) {
     if (err) {

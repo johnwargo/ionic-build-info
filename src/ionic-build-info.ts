@@ -46,13 +46,14 @@ let rawData = fs.readFileSync(inputFile);
 let packageDotJSON = JSON.parse(rawData);
 let buildVersion = packageDotJSON.version;
 outputHighlighted('Build version', buildVersion);
-outputHighlighted('Build date', buildDate.toString());
+outputHighlighted('Build date', `${buildDate.toString()} (${buildDate.getTime().toString()})`);
 
 console.log('\nWriting output file');
 
 let outputStr = 'export const buildInfo = {\n';
 outputStr += `  buildVersion: "${buildVersion}",\n`;
-outputStr += `  buildDate: "${buildDate}"\n`;
+outputStr += `  buildDate: "${buildDate.getTime()}",\n`;
+outputStr += `  buildDateStr: "${buildDate}"\n`;
 outputStr += '}';
 
 fs.writeFile(outputFile, outputStr, function (err: any, data: any) {
