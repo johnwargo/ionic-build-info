@@ -2,7 +2,7 @@
 
 While building a desktop web application using the [Ionic Framework](https://ionicframework.com/), I realized that for support purposes I wanted the ability to display the app's build number (or even build date) in the application somewhere. I started looking for a solution and didn't find one, so I built this module.
 
-> *Note:* This module has not been tested on macOS or Linux (I'll get to that when I get a chance)
+> *Note:* This module has not been tested on macOS or Linux (I'll get to that when I get a chance - it 'should' work)
 
 ## Installation
 
