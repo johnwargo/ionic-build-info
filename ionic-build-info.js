@@ -2,8 +2,8 @@
 "use strict";
 var boxen = require('boxen');
 var chalk = require('chalk');
-var fs = require('fs').promises;
-// const fs = require('fs');
+// const fs = require('fs').promises;
+var fs = require('fs');
 var path = require('path');
 // https://stackoverflow.com/questions/9153571/is-there-a-way-to-get-version-from-package-json-in-nodejs-code
 var packageDotJSON = require('./package.json');
@@ -11,21 +11,38 @@ var appName = 'Ionic Build Info';
 var buildVersion = packageDotJSON.version;
 var blankStr = '';
 var buildDate = new Date(Date.now());
-var outputFile = path.join(process.cwd(), 'src/app/buildinfo.ts');
+var outputFolder = path.join(process.cwd(), 'src/app');
+var outputFile = path.join(outputFolder, 'buildinfo.ts');
+function displayHighlight(highlight, msg) {
+    console.log(chalk.yellow(highlight + ": ") + msg);
+}
 // Opening window
 console.log(boxen(appName, { padding: 1 }));
-console.log("Output file: " + outputFile);
-console.log("Build version: " + buildVersion);
-console.log("Build date: " + buildDate.toString());
+displayHighlight('Output folder', outputFolder);
+displayHighlight('Output file', outputFile);
+displayHighlight('Build version', buildVersion);
+displayHighlight('Build date', buildDate.toString());
+try {
+    if (!fs.existsSync(outputFolder)) {
+        console.log(chalk.red('\nError: Output folder does not exist\n'));
+        process.exit(1);
+    }
+}
+catch (err) {
+    console.error(err);
+}
 var outputStr = 'export const buildInfo = {\n';
 outputStr += "  buildVersion: \"" + buildVersion + "\",\n";
 outputStr += "  buildDate: \"" + buildDate + "\"\n";
 outputStr += '}';
-console.log(outputStr);
+// console.log(outputStr);
+console.log('\nWriting output file');
 fs.writeFile(outputFile, outputStr, function (err, data) {
     if (err) {
-        console.log(chalk.red('Error: Unable to write to file'));
+        console.log(chalk.red('\nError: Unable to write to file\n'));
         console.log(err);
     }
-    console.log(data);
+    if (data) {
+        console.log(data);
+    }
 });
