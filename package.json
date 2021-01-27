@@ -22,5 +22,8 @@
   "dependencies": {
     "boxen": "^5.0.0",
     "chalk": "^4.1.0"
-  }
+  },
+  "keywords": [
+    "Ionic"
+  ]
 }
