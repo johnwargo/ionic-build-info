@@ -11,6 +11,10 @@
     "start": "tsc && node ionic-build-info.js"
   },
   "author": "John M. Wargo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnwargo/ionic-build-info"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^14.14.22"
