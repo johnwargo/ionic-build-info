@@ -64,7 +64,15 @@ To generate an update to the project's `buildinfo.ts` file, open a terminal wind
 ionic-build-info
 ```
 
-To add this process, open your Ionic project's `package.json` file and update the existing `build` script entry from:
+For cloud builds, add the following to the project's `package.json` file:
+
+```json
+"devDependencies": {
+    "ionic-build-info": "^0.0.2"
+},
+```
+
+Next, add this process to the existing `build` script entry, changing:
 
 ```text
 "build": "ng build ",
