@@ -1,6 +1,7 @@
 # Folders
 node_modules/
 src/app/
+.vscode/
 
 # Files
 package-lock.json

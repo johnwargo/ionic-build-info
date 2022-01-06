@@ -7,10 +7,8 @@ While building a desktop web application using the [Ionic Framework](https://ion
 Install the module by opening a terminal window and executing the following command:
 
 ```shell
-npm install g ionic-build-info
+npm install --save-dev ionic-build-info
 ```
-
-This installs the module at global scope, so its available anywhere. If you have a problem and read somewhere that you should use the `sudo` command along with the command shown above, you're getting bad advice, there's no reason to install npm modules using `sudo`.
 
 ## Operation
 
@@ -29,7 +27,7 @@ To import the generated module in a page script, use the following:
 import { buildInfo } from '../buildinfo';
 ```
 
-When you import this file into your IOnic project, the app has access to the project's build details. Here's an example of how to use the generated module in your app, the following code is from a simple page that outputs the build information to the browser's console:
+When you import this file into your Ionic project, the app has access to the project's build details. Here's an example of how to use the generated module in your app, the following code is from a simple page that outputs the build information to the browser's console:
 
 ```typescript
 export class HomePage {
@@ -56,23 +54,7 @@ To use the values in a page's content, use something like the following:
 
 ## Usage
 
-You can use the module from the command line or include it in your Ionic project's build process.
-
-To generate an update to the project's `buildinfo.ts` file, open a terminal window, navigate to an Ionic project, and execute the following command:
-
-```shell
-ionic-build-info
-```
-
-For cloud builds, add the following to the project's `package.json` file:
-
-```json
-"devDependencies": {
-    "ionic-build-info": "^0.0.2"
-},
-```
-
-Next, add this process to the existing `build` script entry, changing:
+Open the project's `package.json` file and add this process to the existing `build` script entry, changing:
 
 ```text
 "build": "ng build ",
@@ -85,6 +67,8 @@ to:
 ```
 
 The `npm version patch` part of the build step increments the patch version in the `package.json` file before calling `ionic-build-info`.
+
+With this in place, when you execute `ionic build` to build a production version of the app, `npm` will update the version number in the project's `package.json` file, build an updated version of the buildinfo.js file, then generate the production build of the app.
 
 ***
 
